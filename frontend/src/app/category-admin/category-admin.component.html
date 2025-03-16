@@ -1,0 +1,16 @@
+<h2>Add New Cateory</h2>
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <div>
+    <label for="name">Category Name:</label>
+    <input type="text" id="name" [(ngModel)]="category.name" name="name" required />
+  </div>
+  <div>
+    <label for="name">Category Description:</label>
+    <input type="text" id="description" [(ngModel)]="category.description" name="name" required />
+  </div>
+  <div>
+    <label for="image">Upload Image:</label>
+    <input type="file" id="image" (change)="onFileSelected($event)" />
+  </div>
+  <button type="submit">Submit</button>
+</form>

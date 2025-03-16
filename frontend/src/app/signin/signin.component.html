@@ -1,0 +1,58 @@
+<!-- <form (ngSubmit)="submit()">
+    <div>
+        <input [(ngModel)]="username" name="username" placeholder="Username" required />
+       
+    </div>
+   
+    <div>
+        <input [(ngModel)]="password" name="password" placeholder="password" required />
+    </div>
+    <button type="submit">Signin</button>
+ 
+</form>
+ -->
+ <nav class="navbar">
+   
+    <button class="navbar-home" (click)="Home()">Home</button>
+  </nav>
+
+
+ <form (ngSubmit)="submit()" class="form-container">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input 
+        [(ngModel)]="username" 
+        name="username" 
+        id="username" 
+        placeholder="Enter your username" 
+        required 
+        #usernameInput="ngModel" 
+        class="form-input"
+      />
+      <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error-message">
+        Username is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        [(ngModel)]="password" 
+        name="password" 
+        id="password" 
+        type="password" 
+        placeholder="Enter your password" 
+        required 
+        minlength="6" 
+        #passwordInput="ngModel" 
+        class="form-input"
+      />
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error-message">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+    <button type="submit" class="submit-button" [disabled]="usernameInput.invalid || passwordInput.invalid">
+      Sign In
+    </button>
+  </form>
+
+  

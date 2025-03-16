@@ -1,0 +1,105 @@
+<!-- <form (ngSubmit)="submit()">
+  <div>
+      <input [(ngModel)]="username" name="username" placeholder="Username" required />
+     
+  </div>
+ 
+  <div>
+      <input [(ngModel)]="password" name="password" placeholder="password" required />
+  </div>
+  <button type="submit">Signup</button>
+
+</form> -->
+<!-- <nav class="navbar">
+   
+  <button class="navbar-home" (click)="Home()">Home</button>
+</nav>
+
+<form (ngSubmit)="submit()" class="form-container">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input 
+      id="username"
+      [(ngModel)]="username" 
+      name="username" 
+      placeholder="Enter your username" 
+      required 
+      #usernameInput="ngModel"
+      class="form-input" 
+    />
+    <div class="error" *ngIf="usernameInput.invalid && usernameInput.touched">
+      Username is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input 
+      id="password"
+      [(ngModel)]="password" 
+      name="password" 
+      type="password" 
+      placeholder="Enter your password" 
+      required 
+      #passwordInput="ngModel"
+      class="form-input" 
+    />
+    <div class="error" *ngIf="passwordInput.invalid && passwordInput.touched">
+      Password is required.
+    </div>
+  </div>
+
+  <button type="submit" class="form-button" [disabled]="usernameInput.invalid || passwordInput.invalid">
+    Signup
+  </button>
+</form> -->
+<nav class="navbar">
+  <button class="navbar-home" (click)="Home()">Home</button>
+</nav>
+
+<form (ngSubmit)="submit()" class="form-container">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      id="username"
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Enter your username"
+      required
+      #usernameInput="ngModel"
+      class="form-input"
+    />
+    <div class="error" *ngIf="usernameInput.invalid && usernameInput.touched">
+      Username is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      [(ngModel)]="password"
+      name="password"
+      type="password"
+      placeholder="Enter your password"
+      required
+      minlength="6"
+      #passwordInput="ngModel"
+      class="form-input"
+    />
+    <div class="error" *ngIf="passwordInput.invalid && passwordInput.touched">
+      <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+      <span *ngIf="passwordInput.errors?.['minlength']">
+        Password must be at least 6 characters.
+      </span>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="form-button"
+    [disabled]="usernameInput.invalid || passwordInput.invalid"
+  >
+    Signup
+  </button>
+</form>

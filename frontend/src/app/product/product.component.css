@@ -1,0 +1,271 @@
+/* General Styles */
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  padding: 16px;
+  background-color: #f8f9fa;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative; /* Create a stacking context */
+  z-index: 1;
+}
+
+/* Right side container with relative positioning */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  padding-right: 20px;
+  position: relative; /* Ensure dropdown can position relative to this */
+  z-index: 10;
+}
+
+/* Container for the avatar and dropdown */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  overflow: visible; /* Ensure the dropdown isn’t clipped */
+}
+
+/* User avatar style */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #007bff;
+  cursor: pointer;
+}
+
+/* Dropdown menu styling */
+.avatar-menu {
+  position: absolute;
+  top: 100%;           /* Directly below the avatar-container */
+  right: 0;
+  margin-top: 5px;     /* A small gap below the avatar */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 150px;
+  z-index: 1000;       /* High z-index so it appears above other elements */
+}
+
+/* Dropdown list styling */
+.avatar-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.avatar-menu li {
+  padding: 8px;
+  cursor: pointer;
+  color: #333;
+}
+
+.avatar-menu li:hover {
+  background-color: #f1f1f1;
+}
+.logo {
+  width: 50px; /* Adjust as needed */
+  height: auto;
+  cursor: pointer;
+  margin-right: 15px; /* Spacing between logo and cart button */
+  vertical-align: middle;
+}
+
+/* Buttons Styling */
+.history-button,
+.logout-button {
+  background-color: white;
+  color: #007bff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.history-button:hover,
+.logout-button:hover {
+  /* background-color: #0056b3;
+  color: white; */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .navbar-center {
+    order: 1;
+  }
+
+  .navbar-left {
+    order: 2;
+  }
+}
+
+/* Search Box */
+.search-container {
+  margin: 80px auto 20px;
+  max-width: 900px;
+  position: relative;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-results {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-results li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Product List */
+.product-list {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Grid */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Product Item */
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Image */
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Product Name & Price */
+.product-details {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.product-name:hover {
+  color: #007bff;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: #555;
+}

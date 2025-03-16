@@ -1,0 +1,49 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <!-- Logo Image -->
+    <img
+      src="assets/Logo.webp"
+      alt="Logo"
+      class="logo"
+      (click)="logoClicked()"
+    />
+  </div>
+  <div class="navbar-left">
+    <button class="history-button" (click)="carthistory()"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.51345 5H1.33325V3H6.15306L7.21972 8.33333H30.5315L27.5012 25H8.51345L4.51345 5ZM7.61972 10.3333L10.1531 23H25.832L28.135 10.3333H7.61972Z" fill="black"></path>
+      <path d="M11.9999 28C11.9999 28.7364 11.403 29.3333 10.6666 29.3333C9.93021 29.3333 9.33325 28.7364 9.33325 28C9.33325 27.2636 9.93021 26.6667 10.6666 26.6667C11.403 26.6667 11.9999 27.2636 11.9999 28Z" fill="white"></path>
+      <path d="M25.3333 29.3333C26.0696 29.3333 26.6666 28.7364 26.6666 28C26.6666 27.2636 26.0696 26.6667 25.3333 26.6667C24.5969 26.6667 23.9999 27.2636 23.9999 28C23.9999 28.7364 24.5969 29.3333 25.3333 29.3333Z" fill="white"></path>
+      </svg></button>
+    
+  </div>
+  <div class="navbar-right">
+    <!-- Avatar acting as a dropdown toggle -->
+    <div class="user-avatar" (click)="toggleAvatarMenu()">
+      {{ userName | slice:0:2 | uppercase }}
+    </div>
+    <!-- Dropdown menu -->
+    <div *ngIf="isAvatarMenuOpen" class="avatar-menu">
+      <ul>
+        <li (click)="goToProfile()">Profile</li>
+        <li (click)="logout()">Logout</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="product-container">
+  <div class="product-card">
+    <img *ngIf="product.image" [src]="'data:image/png;base64,' + product.image" alt="{{ product.name }}" class="product-image" />
+    <div class="product-info">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-price">${{ product.price }}</p>
+      <p class="product-category">Category: {{ product.categoryName }}</p>
+    </div>
+    <div class="product-actions">
+      <button class="order-button" (click)="orderfunction()">Order</button>
+      <button class="cart-button" (click)="addtocart()">Add To Cart</button>
+      
+    </div>
+  </div>
+</div>
+ 
